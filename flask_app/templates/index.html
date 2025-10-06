@@ -4,7 +4,39 @@
 
 
 {% block heading %}
-    <h1>hello world from index file</h1>
+    <h1 class='container h1 justify-content-center my-3'> This is a simple CRUD Enabled Flask APP</h1>
+    
+   
+<div class="container my-4 center">    
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Create_at</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+          <tr>
+          <th scope="row">{{loop.index}}</th>
+          <td>{{user.user_email}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.dateTime}}</td>
+          <td>
+              <a href="/update/{{user.sr_no}}" class='btn btn-primary'>Update</a> 
+
+              <!-- delete button below-->
+              <a href="/delete/{{user.sr_no}}" class='btn btn-danger'>Delete</a> 
+          </td>
+          </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 
 {% endblock heading %}
     
